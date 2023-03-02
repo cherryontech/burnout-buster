@@ -16,7 +16,10 @@ export default function Home() {
       </Head>
       
       <main className={styles.main}>
-        <p>this is the main page (landing) </p>
+        <h2 className={inter.className}>
+          Landing page
+        </h2>
+        <p>this is a placeholder for the main page</p>
       </main>
     </>
   )
