@@ -1,11 +1,10 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+export default function Results() {
   return (
     <>
       <Head>
@@ -16,10 +15,8 @@ export default function Home() {
       </Head>
       
       <main className={styles.main}>
-        <h2 className={inter.className}>
-          Landing page
-        </h2>
-        <p>this is a placeholder for the main page</p>
+        <p>This is the results page</p>
+        {/* to do: add cards with some results */}
       </main>
     </>
   )
