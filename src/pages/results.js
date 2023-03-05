@@ -16,7 +16,7 @@ export default function Results() {
       <main className={styles.main}>
         {/* to do: add cards with some results */}
         <section className='results_intro'>
-          <h1>Here's what we came up with...</h1>
+          <h1>Here&apos;s what we came up with...</h1>
         </section>
         <section className={styles.tags_container}>
           {['Goal Setting', 'Activity Tracking', 'Courses'].map(tag => (

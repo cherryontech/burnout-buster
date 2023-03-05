@@ -3,23 +3,25 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 6rem;
+  padding: var(--spaces-size-l);
   min-height: 100vh;
-  background-color: #f9f7fe;
+  background-color: var(--color--light-grey);
 }
 
 .tags_container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: var(--spaces-size-xs);
   list-style: none;
+  margin-top: var(--spaces-size-m);
+  margin-bottom: var(--spaces-size-m);
 }
 
 .tag {
   border-radius: 500px;
-  padding: 15px;
-  background-color: #d9d9d9;
+  padding: var(--spaces-size-xs);
+  background-color: var(--color--grey);
 }
 
 .cards_container {
@@ -27,23 +29,22 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 25px;
-  padding: 50px 0 50px 0;
+  gap: var(--spaces-size-s);
 }
 
 .card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
-  border-radius: 25px;
-  padding: 15px;
+  gap: var(--spaces-size-xs);
+  border-radius: var(--spaces-size-s);
+  padding: var(--spaces-size-xs);
   background-color: white;
 }
 
 .card_image {
   background-color: #e4f8f7;
-  border-radius: 25px;
+  border-radius: var(--spaces-size-s);
 }
 
 .card_footer {
@@ -56,11 +57,11 @@
 }
 
 .card_button {
-  width: 15px;
-  height: 15px;
+  width: var(--spaces-size-xs);
+  height: var(--spaces-size-xs);
   border-radius: 100%;
   outline: black solid 0.5px;
-  margin-right: 10px;
+  margin-right: var(--spaces-size-xs);
 }
 
 .card_resource_link {
