@@ -47,8 +47,8 @@ export default function Results() {
                 <button className={styles.card_button}></button>
                 <button className={styles.card_button}></button>
               </div>
-              <div className='card_resource_link tag'>
-                <Link href="https://sensa.health/">Learn more</Link>
+              <div className={styles.tag}>
+                <Link href="https://sensa.health/" className={styles.card_resource_link}>Learn more</Link>
               </div>
             </div>
           </div>

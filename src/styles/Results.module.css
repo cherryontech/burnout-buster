@@ -5,7 +5,7 @@
   align-items: center;
   padding: 6rem;
   min-height: 100vh;
-  background-color: lightgrey;
+  background-color: #f9f7fe;
 }
 
 .tags {
@@ -19,7 +19,7 @@
 .tag {
   border-radius: 500px;
   padding: 15px;
-  background-color: grey;
+  background-color: #d9d9d9;
 }
 
 .card {
@@ -37,6 +37,7 @@
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: nowrap;
+  align-items: center;
   width: 100%;
 }
 
@@ -46,4 +47,11 @@
   border-radius: 100%;
   outline: black solid 0.5px;
   margin-right: 10px;
+}
+
+.card_resource_link {
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
 }
