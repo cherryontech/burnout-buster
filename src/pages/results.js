@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { Inter } from '@next/font/google'
+import Link from 'next/link'
 import styles from '@/styles/Home.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -13,10 +14,42 @@ export default function Results() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      
+
       <main className={styles.main}>
-        <p>This is the results page</p>
         {/* to do: add cards with some results */}
+        <section className='results-intro'>
+          <h1>Here's what we came up with...</h1>
+        </section>
+        <section className='tags-container'>
+          <ul>
+            <li>Goal Setting</li>
+            <li>Activity tracking</li>
+            <li>Mental health support</li>
+            <li>E-counseling</li>
+          </ul>
+        </section>
+        <section className='cards-container'>
+          <div className='card'>
+            <div className='card-tittle'>Sensa.health</div>
+
+            <picture>
+              <source srcSet="https://sensa.health/static/06abdded9fa8e6e3e192540f099f1218/4b995/bean_in_heart.webp" type="image/webp" />
+              <img
+                src="https://sensa.health/static/06abdded9fa8e6e3e192540f099f1218/4b995/bean_in_heart.webp"
+                alt="Antropomorphic cartoon bean relaxing inside a cartoon heart"
+                width={250}
+                // height={500}
+              />
+            </picture>
+
+            <div className='card-footer'>
+              <div className='card-buttons'></div>
+              <div className='card-resource-link'>
+                <Link href="https://sensa.health/">Learn more</Link>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
     </>
   )
