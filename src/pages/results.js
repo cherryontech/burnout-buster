@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import styles from '@/styles/Results.module.css'
 import Card from '../components/card.js'
-
+import Tag from '../components/tag.js';
 
 export default function Results() {
   return (
@@ -18,13 +18,10 @@ export default function Results() {
         <section className='results_intro'>
           <h1>Here's what we came up with...</h1>
         </section>
-        <section className='tags_container'>
-          <ul className={styles.tags}>
-            <li className={styles.tag}>Goal Setting</li>
-            <li className={styles.tag}>Activity tracking</li>
-            <li className={styles.tag}>Mental health support</li>
-            <li className={styles.tag}>E-counseling</li>
-          </ul>
+        <section className={styles.tags_container}>
+          {['Goal Setting', 'Activity Tracking', 'Courses'].map(tag => (
+            <Tag tagName={tag} key={tag}/>
+          ))}
         </section>
         <section className={styles.cards_container}>
           <Card />
