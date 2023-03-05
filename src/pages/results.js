@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Header from '../components/header.js'
 import styles from '@/styles/Home.module.css'
 
 export default function Results() {
@@ -12,7 +11,6 @@ export default function Results() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header />
       <main className={styles.main}>
         <p>This is the results page</p>
         {/* to do: add cards with some results */}
