@@ -26,7 +26,10 @@ export default function Results() {
             <li className={styles.tag}>E-counseling</li>
           </ul>
         </section>
-        <section className='cards_container'>
+        <section className={styles.cards_container}>
+          <Card />
+          <Card />
+          <Card />
           <Card />
         </section>
       </main>
