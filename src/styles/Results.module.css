@@ -32,6 +32,11 @@
   background-color: white;
 }
 
+.card_image {
+  background-color: #e4f8f7;
+  border-radius: 25px;
+}
+
 .card_footer {
   display: flex;
   flex-direction: row;
