@@ -1,9 +1,7 @@
 import Head from 'next/head'
-import { Inter } from '@next/font/google'
 import Link from 'next/link'
-import styles from '@/styles/Home.module.css'
+import styles from '@/styles/Results.module.css'
 
-const inter = Inter({ subsets: ['latin'] })
 
 export default function Results() {
   return (
@@ -17,22 +15,24 @@ export default function Results() {
 
       <main className={styles.main}>
         {/* to do: add cards with some results */}
-        <section className='results-intro'>
+        <section className='results_intro'>
           <h1>Here's what we came up with...</h1>
         </section>
-        <section className='tags-container'>
-          <ul>
-            <li>Goal Setting</li>
-            <li>Activity tracking</li>
-            <li>Mental health support</li>
-            <li>E-counseling</li>
+        <section className='tags_container'>
+          <ul className={styles.tags}>
+            <li className={styles.tag}>Goal Setting</li>
+            <li className={styles.tag}>Activity tracking</li>
+            <li className={styles.tag}>Mental health support</li>
+            <li className={styles.tag}>E-counseling</li>
           </ul>
         </section>
-        <section className='cards-container'>
-          <div className='card'>
-            <div className='card-tittle'>Sensa.health</div>
+        <section className='cards_container'>
+          <div className={styles.card}>
+            <div className='card_tittle'>
+              <h2>Sensa.health</h2>
+            </div>
 
-            <picture>
+            <picture className='card_image'>
               <source srcSet="https://sensa.health/static/06abdded9fa8e6e3e192540f099f1218/4b995/bean_in_heart.webp" type="image/webp" />
               <img
                 src="https://sensa.health/static/06abdded9fa8e6e3e192540f099f1218/4b995/bean_in_heart.webp"
@@ -42,9 +42,12 @@ export default function Results() {
               />
             </picture>
 
-            <div className='card-footer'>
-              <div className='card-buttons'></div>
-              <div className='card-resource-link'>
+            <div className={styles.card_footer}>
+              <div className='card_buttons'>
+                <button className={styles.card_button}></button>
+                <button className={styles.card_button}></button>
+              </div>
+              <div className='card_resource_link tag'>
                 <Link href="https://sensa.health/">Learn more</Link>
               </div>
             </div>
