@@ -13,10 +13,9 @@ export default function Results() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      
-      <main className={styles.main}>
-        <p>This is the results page</p>
-        {/* to do: add cards with some results */}
+
+      <main  className={styles.main}>
+        this is the results page
       </main>
     </>
   )
