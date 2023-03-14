@@ -1,0 +1,19 @@
+h1 {
+  font-size: var(--font-size-xl);
+}
+
+h2 {
+  font-size: var(--font-size-l);
+}
+
+h3 {
+  font-size: var(--font-size-m);
+}
+
+h4, h5, h6 {
+  font-size: var(--font-size-s);
+}
+
+p, a, li {
+  font-size: var(--font-size-s);
+}
