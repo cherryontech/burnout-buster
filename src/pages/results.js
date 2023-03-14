@@ -1,8 +1,5 @@
 import Head from 'next/head'
-import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export default function Results() {
   return (
@@ -14,8 +11,9 @@ export default function Results() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main  className={styles.main}>
-        this is the results page
+      <main className={styles.main}>
+        <p>This is the results page</p>
+        {/* to do: add cards with some results */}
       </main>
     </>
   )
