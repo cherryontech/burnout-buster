@@ -8,19 +8,9 @@
   background-color: var(--color--light-grey);
 }
 
-.tags_container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: var(--spaces-size-xs);
-  list-style: none;
-  margin-top: var(--spaces-size-m);
-  margin-bottom: var(--spaces-size-m);
-}
-
 .tag {
   border-radius: 500px;
-  padding: var(--spaces-size-xs);
+  padding: var(--spaces-size-xs) var(--spaces-size-s);
   background-color: var(--color--grey);
 }
 
@@ -34,8 +24,7 @@
 
 .card {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
   gap: var(--spaces-size-xs);
   border-radius: var(--spaces-size-s);
   padding: var(--spaces-size-xs);
@@ -47,21 +36,25 @@
   border-radius: var(--spaces-size-s);
 }
 
-.card_footer {
+.card_title {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: nowrap;
   align-items: center;
-  width: 100%;
+  gap: var(--spaces-size-s);
 }
 
-.card_button {
-  width: var(--spaces-size-xs);
-  height: var(--spaces-size-xs);
-  border-radius: 100%;
-  outline: black solid 0.5px;
-  margin-right: var(--spaces-size-xs);
+.card_text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  height: 100%;
+}
+
+.card_redirect {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .card_resource_link {
