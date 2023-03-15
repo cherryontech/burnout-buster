@@ -1,6 +1,6 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import { Inter } from '@next/font/google'
+import Link from 'next/link';
 import styles from '@/styles/Home.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -16,13 +16,18 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h5>HIYA!</h5>
-        <h2>Welcome to</h2>
-        <h2 className={inter.className}>
-          Burnout Buster
-        </h2>
+        <section className={styles.greeting}>
+          <div>
+            <h5>HIYA!</h5>
+            <h2 className={styles.greeting_welcome}>Welcome to</h2>
+          </div>
+          <h1 className={styles.logo}>
+            Burnout Buster
+          </h1>
+        </section>
+
         <p>We know that dealing with burnout can be a difficult and stressful experience, and finding the right resources can be overwhelming. Our goal is to make it easier for you to find the help you need by offering a personalized search experience that will connect you with the resources and support you need to recover and thrive.</p>
-        <button>Begin Quiz</button>
+        <a href='https://burnout-buster.netlify.app/quiz' className={styles.tag}>Begin Quiz</a>
       </main>
     </>
   )
