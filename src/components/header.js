@@ -4,7 +4,7 @@ import styles from '@/styles/Header.module.css'
 function Header() {
   return (
     <header className={styles.header}>
-      <a href='https://burnout-buster.netlify.app/' className={styles.logo}>Burnout Buster</a>
+      <Link href='/' className={styles.logo}>Burnout Buster</Link>
     </header>
   )
 }
