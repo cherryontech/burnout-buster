@@ -27,7 +27,7 @@ export default function Home() {
         </section>
 
         <p>We know that dealing with burnout can be a difficult and stressful experience, and finding the right resources can be overwhelming. Our goal is to make it easier for you to find the help you need by offering a personalized search experience that will connect you with the resources and support you need to recover and thrive.</p>
-        <a href='https://burnout-buster.netlify.app/quiz' className={styles.tag}>Begin Quiz</a>
+        <Link href='/quiz' className={styles.tag}>Begin Quiz</Link>
       </main>
     </>
   )
