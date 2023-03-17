@@ -4,6 +4,7 @@ import content from '../components/content.js'
 import {useState} from 'react';
 
 
+
 export default function Quiz() {
 
 const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -40,7 +41,7 @@ const handleSelectedAnswer = (answer) => {
 
       <main className={styles.main}>
 
-      
+   
       {/* QUESTIONS */}
       <div className={styles.quiz_statement}>       
         <h1>{content[currentQuestion].question}</h1>
@@ -67,9 +68,18 @@ const handleSelectedAnswer = (answer) => {
       {/* NEXT BUTTON */}
         <div className='next-btn'>
         <button className={styles.next_btn} onClick={clickNext}><span>&#62;</span></button>
+        </div>
       </div>
+
+     {/* PROGRESS BAR */}
+    <div className={styles.progress_area}>
+      <div className={styles.progress_bar}>
+        <div className={styles.user_progress}></div>
       </div>
- 
+      <h4 className={styles.prog_text}>1/3</h4>
+    </div>  
+
+
       </main>
     </>
   )
