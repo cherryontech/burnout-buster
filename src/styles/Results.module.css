@@ -8,6 +8,10 @@
   background-color: var(--color--light-grey);
 }
 
+.results_title {
+  margin-bottom: var(--spaces-size-m);
+}
+
 .tag {
   border-radius: 500px;
   padding: var(--spaces-size-xs) var(--spaces-size-s);
@@ -29,11 +33,13 @@
   border-radius: var(--spaces-size-s);
   padding: var(--spaces-size-xs);
   background-color: white;
+  min-width: 100%;
 }
 
 .card_image {
   background-color: #e4f8f7;
   border-radius: var(--spaces-size-s);
+  object-fit: cover;
 }
 
 .card_title {

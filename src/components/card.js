@@ -4,12 +4,14 @@ function Card({imgUrl, imgAlt, cardTitle, cardTag, cardUrl, cardDesc}) {
 
   return (
     <div className={styles.card}>
-      <picture className={styles.card_image}>
+      <picture>
         <source srcSet={imgUrl.join('')} type="image/webp" />
         <img
           src={imgUrl.join('')}
           alt={imgAlt}
           width={250}
+          height={250}
+          className={styles.card_image}
         />
       </picture>
 

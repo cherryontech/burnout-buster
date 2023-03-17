@@ -16,7 +16,7 @@ export default function Results() {
       <main className={styles.main}>
         {/* to do: add cards with some results */}
         <section className='results_intro'>
-          <h1>Check these out...</h1>
+          <h1 className={styles.results_title}>Check these out...</h1>
         </section>
 
         <section className={styles.cards_container}>
