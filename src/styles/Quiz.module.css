@@ -8,10 +8,8 @@
     
   }
 
-
   .quiz_statement {
     color: black;
-    padding: 2rem;
  
   }
 
@@ -70,3 +68,27 @@
     padding-right: 30px;
 
   }
+
+.progress_area{
+  text-align: right;
+  
+}
+
+ .progress_bar{
+  margin-top: 13rem;
+  width: 73rem;
+  height: 0.75rem;
+  background-color: #D9D9D9;
+  border-radius: 10px;
+ 
+ 
+ }
+
+ .user_progress{
+  width: 50%;
+  height: 0.75rem;
+  background-color: #2D2D2D;
+  border-radius: 10px;
+  
+ }
+
