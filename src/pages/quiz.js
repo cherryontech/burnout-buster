@@ -16,7 +16,6 @@ const clickPrevious = () => {
   previousQuestion >= 0 && setCurrentQuestion(previousQuestion);
 };
 
-/* handles the next onClick */
 const clickNext = () => {
   const nextQuestion = currentQuestion + 1;
   nextQuestion < content.length && setCurrentQuestion(nextQuestion);
@@ -29,6 +28,10 @@ const handleSelectedAnswer = (answer) => {
     setSelectedAnswer([...selectedAnswer]);
     console.log(selectedAnswer);
 };
+
+const showResults = () => {
+  window.location.href = '/results';
+}
 
   return (
     <>
@@ -61,13 +64,12 @@ const handleSelectedAnswer = (answer) => {
             onChange ={(e) => handleSelectedAnswer(answer.answer)} 
             checked ={answer.answer === selectedAnswer[currentQuestion]?.userAnswer}
             className={styles.answerBtns}/>
-            {/*<p>{answer.answer}</p> */} {/*Text placeholder just to make sure the scales are responsive*/}
           </div>
        ))}
         <h2 className={styles.answer_titles}>Agreed</h2>
       {/* NEXT BUTTON */}
         <div className='next-btn'>
-        <button className={styles.next_btn} onClick={clickNext}><span>&#62;</span></button>
+        <button className={styles.next_btn} onClick={ currentQuestion + 1 === content.length ? showResults : clickNext}><span>&#62;</span></button>
         </div>
       </div>
 
