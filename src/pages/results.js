@@ -2,6 +2,7 @@ import Head from 'next/head'
 import styles from '@/styles/Results.module.css'
 import Card from '../components/card.js'
 import { resultsObject } from '@/data/results.js'
+import { EmailService } from '@/components/email_service.js'
 
 export default function Results() {
   return (
@@ -31,6 +32,11 @@ export default function Results() {
               cardDesc = {Object.values(itemArr[1].description)}
             />
           ))}
+        </section>
+
+        <section className='email_results'>
+          <h3>Email yourself your results</h3>
+          <EmailService message='teste' />
         </section>
       </main>
     </>
