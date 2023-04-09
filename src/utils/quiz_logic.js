@@ -34,17 +34,24 @@ function rankTagsScores(tagsScores) {
   return orderedTags
 }
 
-let rankedScores = rankTagsScores(tagsScores)
 
 // remove the one we don't care about from our object
-function deleteLastTag(rankedScores, tagsResults) {
+function deleteLastPlaceResults(rankedScores, tagsResults, resultsObject) {
   let lastTag = rankedScores.slice(-1)[0]
-  delete tagsResults[lastTag]
 
-  return tagsResults
+  let lastPlaceResults = tagsResults[lastTag]
+  lastPlaceResults.forEach(result => delete resultsObject[result])
+
+  return resultsObject
 }
 
-deleteLastTag(rankedScores, tagsResults)
 
-// we want to match the remaining results to our resultsObject
+function deleteResultsWithLastRankedTag(rankedScores, tagsResults, resultsObject) {
+  let lastTag = rankedScores.slice(-1)[0]
+}
+
+let rankedScores = rankTagsScores(tagsScores)
+deleteLastPlaceResults(rankedScores, tagsResults, resultsObject)
+
+// we want to match the remaining results to our original resultsObject
 // we want to sort the remaining results
