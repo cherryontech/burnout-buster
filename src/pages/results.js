@@ -2,6 +2,7 @@ import Head from 'next/head'
 import styles from '@/styles/Results.module.css'
 import Card from '../components/card.js'
 import { resultsObject } from '@/data/results.js'
+import { sortedResultsObject } from '@/utils/quiz_logic'
 
 export default function Results() {
   return (
@@ -20,15 +21,15 @@ export default function Results() {
         </section>
 
         <section className={styles.cards_container}>
-          {Object.entries(resultsObject).map(itemArr => (
+          {sortedResultsObject.map(itemArr => (
             <Card
               key={itemArr[0]}
-              imgUrl={Object.values(itemArr[1].image)}
-              imgAlt={Object.values(itemArr[1].alt)}
-              cardTitle={Object.values(itemArr[1].title)}
-              cardTag={Object.values(itemArr[1].tag)}
-              cardUrl = {Object.values(itemArr[1].url)}
-              cardDesc = {Object.values(itemArr[1].description)}
+              imgUrl={itemArr.image}
+              imgAlt={itemArr.alt}
+              cardTitle={itemArr.title}
+              cardTag={itemArr.tag}
+              cardUrl = {itemArr.url}
+              cardDesc = {itemArr.description}
             />
           ))}
         </section>

@@ -9,9 +9,9 @@ let tagsScores = {
 // mocked tags' scores
 // I just want to test the logic, this should come from the form/quiz
 tagsScores = {
-  affordable: 1,
-  job: 3,
-  community: 2,
+  affordable: 2,
+  job: 1,
+  community: 3,
 }
 
 let tagsResults = {
@@ -46,12 +46,16 @@ function deleteLastPlaceResults(rankedScores, tagsResults, resultsObject) {
 }
 
 
-function deleteResultsWithLastRankedTag(rankedScores, tagsResults, resultsObject) {
-  let lastTag = rankedScores.slice(-1)[0]
+function sortResultsObject(resultsObject, rankedScores) {
+  let betterPlacedTags = rankedScores.slice(0,-1)
+
+  let orderedResultsArray = []
+  betterPlacedTags.forEach( tag => tagsResults[tag].forEach( result => orderedResultsArray.push(resultsObject[result])))
+
+  return orderedResultsArray
 }
 
 let rankedScores = rankTagsScores(tagsScores)
 deleteLastPlaceResults(rankedScores, tagsResults, resultsObject)
 
-// we want to match the remaining results to our original resultsObject
-// we want to sort the remaining results
+export const sortedResultsObject = sortResultsObject(resultsObject, rankedScores)
