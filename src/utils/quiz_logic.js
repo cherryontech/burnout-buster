@@ -14,25 +14,37 @@ tagsScores = {
   community: 2,
 }
 
-const tagsResults = {
+let tagsResults = {
   affordable: ['sensa', 'pocketwell'],
   job: ['jobnetwork'],
   community: ['sidebyside', 'mighty'],
 }
 
-function handleTagsScores(tagsScores) {
+// we rank the scores
+function rankTagsScores(tagsScores) {
   let tagsScoresArr = Object.entries(tagsScores)
 
   tagsScoresArr.sort(function(a, b) {
     return b[1] - a[1];
   })
 
-  tagsScoresArrTopScores = tagsScoresArr.slice(0,-1)
+  let orderedTags = []
+  tagsScoresArr.forEach( tag => orderedTags.push(tag[0]))
 
-  let finalTags = []
-  tagsScoresArrTopScores.forEach( tag => finalTags.push(tag[0]))
-
-  return finalTags
+  return orderedTags
 }
 
-handleTagsScores(tagsScores)
+let rankedScores = rankTagsScores(tagsScores)
+
+// remove the one we don't care about from our object
+function deleteLastTag(rankedScores, tagsResults) {
+  let lastTag = rankedScores.slice(-1)[0]
+  delete tagsResults[lastTag]
+
+  return tagsResults
+}
+
+deleteLastTag(rankedScores, tagsResults)
+
+// we want to match the remaining results to our resultsObject
+// we want to sort the remaining results
