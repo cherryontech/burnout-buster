@@ -102,6 +102,7 @@ const showResults = () => {
   )
 }
 
+
 function ProgressBar({ progress }) { // new addition 4/8/23
   return (
     <div className={styles.progress_bar}>
@@ -112,3 +113,4 @@ function ProgressBar({ progress }) { // new addition 4/8/23
     </div>
   );
 }
+
