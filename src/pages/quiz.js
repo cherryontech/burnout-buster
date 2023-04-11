@@ -2,6 +2,7 @@ import Head from 'next/head'
 import styles from '@/styles/Quiz.module.css'
 import content from '../components/content.js'
 import {useState} from 'react';
+import Link from 'next/link'
 
 
 
@@ -9,21 +10,30 @@ export default function Quiz() {
 
 const [currentQuestion, setCurrentQuestion] = useState(0);
 const [selectedAnswer, setSelectedAnswer] = useState([]);
+const [progress, setProgress] = useState(0); // new addition 4/8/23
 
-/* handles the previous onClick */
+
+/* handles the 'previous' button onClick */
 const clickPrevious = () => {
   const previousQuestion = currentQuestion - 1;
   previousQuestion >= 0 && setCurrentQuestion(previousQuestion);
+  const progress = (((currentQuestion +1) - 1) / content.length) * 100; // new addition 4/8/23
+  setProgress(progress); // new addition 4/8/23
 };
 
+/* handles the 'next' button onClick */
 const clickNext = () => {
   const nextQuestion = currentQuestion + 1;
   nextQuestion < content.length && setCurrentQuestion(nextQuestion);
+  const progress = (((currentQuestion +1) + 1) / content.length) * 100; 
+  
+  setProgress(progress); // new addition 4/8/23
 }; 
 
 const handleSelectedAnswer = (answer) => {
   setSelectedAnswer([
-    (selectedAnswer[currentQuestion] = { userAnswer: answer }),
+    (selectedAnswer[currentQuestion] = { userAnswer: answer})
+    
   ]);
     setSelectedAnswer([...selectedAnswer]);
     console.log(selectedAnswer);
@@ -43,6 +53,11 @@ const showResults = () => {
       </Head>
 
       <main className={styles.main}>
+      
+      {/* EXIT BUTTON */}
+      <div>
+        <Link className={styles.exit_button} href="/" align="right">EXIT</Link>
+      </div>
 
    
       {/* QUESTIONS */}
@@ -67,22 +82,33 @@ const showResults = () => {
           </div>
        ))}
         <h2 className={styles.answer_titles}>Agreed</h2>
+      
       {/* NEXT BUTTON */}
+      <div> 
         <div className='next-btn'>
         <button className={styles.next_btn} onClick={ currentQuestion + 1 === content.length ? showResults : clickNext}><span>&#62;</span></button>
+          </div>
         </div>
       </div>
 
-     {/* PROGRESS BAR */}
-    <div className={styles.progress_area}>
-      <div className={styles.progress_bar}>
-        <div className={styles.user_progress}></div>
-      </div>
-      <h4 className={styles.prog_text}>1/3</h4>
-    </div>  
-
+       {/* PROGRESS BAR */}
+        <div>
+        <ProgressBar progress={progress} />
+        <h3>{`${currentQuestion + 1} / ${content.length}`}</h3>
+        </div>
 
       </main>
     </>
   )
+}
+
+function ProgressBar({ progress }) { // new addition 4/8/23
+  return (
+    <div className={styles.progress_bar}>
+      <div
+        className={styles.user_progress}
+        style={{ width: `${progress}%` }}
+      />
+    </div>
+  );
 }
