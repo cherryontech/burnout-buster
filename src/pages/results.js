@@ -4,6 +4,7 @@ import styles from '@/styles/Results.module.css'
 import Card from '../components/card.js'
 import { resultsObject } from '@/data/results.js'
 import { EmailService } from '@/components/email_service.js'
+import { quizResults } from './quiz.js';
 
 const FormSubmitResult = ({ status }) => {
   if (status === null) {
@@ -34,6 +35,8 @@ export default function Results() {
         <section className='results_intro'>
           <h1 className={styles.results_title}>Check these out&hellip;</h1>
         </section>
+        
+        {console.log(quizResults)}
 
         <section className={styles.cards_container}>
           {Object.entries(resultsObject).map(itemArr => (
@@ -48,7 +51,7 @@ export default function Results() {
             />
           ))}
         </section>
-
+          
         <section className='email_results'>
           <h3>Email yourself your results</h3>
           <EmailService
