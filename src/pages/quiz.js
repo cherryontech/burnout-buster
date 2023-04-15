@@ -3,7 +3,7 @@ import styles from '@/styles/Quiz.module.css'
 import content from '../components/content.js'
 import {useState} from 'react';
 import Link from 'next/link'
-
+import Navbar from '../components/navbar.js';
 
 
 export default function Quiz() {
@@ -51,6 +51,8 @@ const showResults = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      <Navbar />
 
       <main className={styles.main}>
         {/* EXIT BUTTON */}

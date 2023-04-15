@@ -1,0 +1,11 @@
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  padding: var(--font-size-m);
+}
+
+.tag {
+  border-radius: 500px;
+  padding: var(--spaces-size-xs) var(--spaces-size-s);
+  background-color: var(--color--grey);
+}

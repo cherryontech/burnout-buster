@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Head from 'next/head'
 import styles from '@/styles/Results.module.css'
 import Card from '../components/card.js'
+import Navbar from '@/components/navbar.js';
 import { resultsObject } from '@/data/results.js'
 import { EmailService } from '@/components/email_service.js'
 
@@ -29,6 +30,8 @@ export default function Results() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      <Navbar />
 
       <main className={styles.main}>
         <section className='results_intro'>
