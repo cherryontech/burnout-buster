@@ -31,7 +31,7 @@ export default function Results() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Navbar />
+      <Navbar emailMessage={resultsObject}/>
 
       <main className={styles.main}>
         <section className='results_intro'>

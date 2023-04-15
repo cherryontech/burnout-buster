@@ -13,8 +13,8 @@ const formatMessageItem = ({ url, title, description }) => `
 `;
 
 export const EmailService = ({ message, setResultsStatus }) => {
-  const [name, setName] = useState("Joaquina");
-  const [email, setEmail] = useState("joaquina@example.com");
+  const [name, setName] = useState("Your Name");
+  const [email, setEmail] = useState("your_email@example.com");
 
   const sendEmail = (e) => {
     e.preventDefault();
