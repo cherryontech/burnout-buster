@@ -4,24 +4,8 @@ import styles from '@/styles/Results.module.css'
 import Card from '../components/card.js'
 import Navbar from '@/components/navbar.js';
 import { resultsObject } from '@/data/results.js'
-import { EmailService } from '@/components/email_service.js'
-
-const FormSubmitResult = ({ status }) => {
-  if (status === null) {
-    return <></>;
-  }
-
-  const klass = status === 'success' ? "result-success" : "result-failure";
-  const message = status === 'success' ? "Yay :DDDD" : "Ohno :,(";
-
-  return (
-    <div className={klass}>{message}</div>
-  );
-}
 
 export default function Results() {
-  const [resultsStatus, setResultsStatus] = useState(null);
-
   return (
     <>
       <Head>
@@ -51,16 +35,6 @@ export default function Results() {
             />
           ))}
         </section>
-
-        <section className='email_results'>
-          <h3>Email yourself your results</h3>
-          <EmailService
-            message={resultsObject}
-            setResultsStatus={setResultsStatus}
-          />
-        </section>
-
-        <FormSubmitResult status={resultsStatus} />
       </main>
     </>
   )
