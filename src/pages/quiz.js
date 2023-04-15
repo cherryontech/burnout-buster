@@ -55,12 +55,6 @@ const showResults = () => {
       <Navbar />
 
       <main className={styles.main}>
-        {/* EXIT BUTTON */}
-        <div>
-          <Link className={styles.exit_button} href="/" align="right">EXIT</Link>
-        </div>
-
-
         {/* QUESTIONS */}
         <div className={styles.quiz_statement}>
           <h1>{content[currentQuestion].question}</h1>
