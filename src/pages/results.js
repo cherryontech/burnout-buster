@@ -15,7 +15,7 @@ export default function Results() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Navbar emailMessage={resultsObject}/>
+      <Navbar emailMessage={resultsObject} emailFeature={true}/>
 
       <main className={styles.main}>
         <section className='results_intro'>

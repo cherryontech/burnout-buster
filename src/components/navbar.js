@@ -16,20 +16,28 @@ const FormSubmitResult = ({ status }) => {
   );
 }
 
-export default function Navbar({ emailMessage }) {
+export default function Navbar({ emailMessage, emailFeature }) {
   const [resultsStatus, setResultsStatus] = useState(null);
 
   return (
     <nav>
-      <div className={styles.main_navbar}>
-        <div className={styles.email}>
-          <p>email your results</p>
-          <EmailService
-            message={emailMessage}
-            setResultsStatus={setResultsStatus}
-          />
-        </div>
-        <Link href='/' className={styles.tag}>Exit</Link>
+      <div>
+        { emailFeature === true ?
+          <div className={styles.navbar_with_email}>
+            <div className={styles.email}>
+              <p>email your results</p>
+              <EmailService
+                message={emailMessage}
+                setResultsStatus={setResultsStatus}
+              />
+            </div>
+            <Link href='/' className={styles.tag}>Exit</Link>
+          </div>
+          :
+          <div className={styles.navbar_simple}>
+            <Link href='/' className={styles.tag}>Exit</Link>
+          </div>
+        }
       </div>
       <FormSubmitResult status={resultsStatus} className={styles.nav_dialog}/>
     </nav>

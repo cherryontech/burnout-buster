@@ -1,6 +1,12 @@
-.main_navbar {
+.navbar_with_email {
   display: flex;
   justify-content: space-between;
+  padding: var(--spaces-size-s);
+}
+
+.navbar_simple {
+  display: flex;
+  justify-content: flex-end;
   padding: var(--spaces-size-s);
 }
 
