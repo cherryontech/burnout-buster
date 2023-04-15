@@ -22,8 +22,14 @@
   background-color: var(--color--grey);
 }
 
-.nav_dialog {
-  padding: 1.5rem;
-  text-align: var(--spaces-size-s);
-  background-color: var(--color--grey);
+.failure {
+  padding: var(--spaces-size-s);
+  text-align: center;
+  background-color: red;
+}
+
+.success {
+  padding: var(--spaces-size-s);
+  text-align: center;
+  background-color: greenyellow;
 }

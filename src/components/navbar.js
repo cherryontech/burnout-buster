@@ -8,8 +8,8 @@ const FormSubmitResult = ({ status }) => {
     return <></>;
   }
 
-  const klass = status === 'success' ? "result-success" : "result-failure";
-  const message = status === 'success' ? "Yay :DDDD" : "Ohno :,(";
+  const klass = status === 'success' ? styles.success : styles.failure;
+  const message = status === 'success' ? "Success! You will receive your results shortly" : "Oh no! Something went wrong. Please try again later.";
 
   return (
     <div className={klass}>{message}</div>
@@ -39,7 +39,8 @@ export default function Navbar({ emailMessage, emailFeature }) {
           </div>
         }
       </div>
-      <FormSubmitResult status={resultsStatus} className={styles.nav_dialog}/>
+
+      <FormSubmitResult status={resultsStatus} />
     </nav>
   )
 }
