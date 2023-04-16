@@ -4,6 +4,9 @@ import content from '../components/content.js'
 import {useState} from 'react';
 import Link from 'next/link'
 import Navbar from '../components/navbar.js';
+import { Results_data } from "../../context/context.js";
+import { useContext } from "react";
+import { useRouter } from "next/router";
 
 
 export default function Quiz() {
@@ -12,6 +15,8 @@ const [currentQuestion, setCurrentQuestion] = useState(0);
 const [selectedAnswer, setSelectedAnswer] = useState([]);
 const [progress, setProgress] = useState(0); // new addition 4/8/23
 
+const { answer, setAnswer } = useContext(Results_data);
+var router = useRouter();
 
 /* handles the 'previous' button onClick */
 const clickPrevious = () => {
@@ -37,10 +42,13 @@ const handleSelectedAnswer = (answer) => {
   ]);
     setSelectedAnswer([...selectedAnswer]);
     console.log(selectedAnswer);
+
+  setAnswer(selectedAnswer);
 };
 
 const showResults = () => {
-  window.location.href = '/results';
+  router.push("/results");
+  // Reference: https://nextjs.org/docs/api-reference/next/router (routes to new page without losing data)
 }
 
   return (
@@ -70,7 +78,7 @@ const showResults = () => {
 
           {/* ANSWERS INPUTS */}
           {content[currentQuestion].quizAnswers.map((answer, index )=> (
-              <div key={index} className="answers" onClick={(e) => handleSelectedAnswer(answer.answer)}>
+              <div key={index} className="answers">
                 <input type="radio" name={answer.answer} value={answer.answer}
                 onChange ={(e) => handleSelectedAnswer(answer.answer)}
                 checked ={answer.answer === selectedAnswer[currentQuestion]?.userAnswer}

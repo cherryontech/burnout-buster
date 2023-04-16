@@ -1,11 +1,15 @@
-import { useState } from 'react';
 import Head from 'next/head'
 import styles from '@/styles/Results.module.css'
 import Card from '../components/card.js'
 import Navbar from '@/components/navbar.js';
 import { resultsObject } from '@/data/results.js'
+import { Results_data } from "../../context/context";
+import { useContext } from "react";
 
 export default function Results() {
+  const { answer } = useContext(Results_data);
+  console.log('ANSWER: ', answer);
+  
   return (
     <>
       <Head>
