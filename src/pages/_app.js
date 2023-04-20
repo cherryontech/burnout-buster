@@ -1,6 +1,7 @@
 import '@/styles/globals.css'
 import Layout from '../components/layout'
 import '@/styles/fonts.css'
+import Context from "../../context/context"
 import {useState} from 'react';
 
 
@@ -15,8 +16,11 @@ export default function App({ Component, pageProps, ...appProps }) {
   return <Component {...pageProps} />;
 
   return (
-    <Layout>
-      <Component {...pageProps} updateFormData = {updateFormData}/>
-    </Layout>
+    <Context>
+      <Layout>
+        <Component {...pageProps} updateFormData = {updateFormData} />
+      </Layout>
+    </Context>
+
   )
 }
