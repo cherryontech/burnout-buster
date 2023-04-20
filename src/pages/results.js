@@ -4,7 +4,9 @@ import styles from '@/styles/Results.module.css'
 import Card from '../components/card.js'
 import Navbar from '@/components/navbar.js';
 import { resultsObject } from '@/data/results.js'
+import { quizResults } from './quiz.js';
 import { sortedResultsObject } from '@/utils/quiz_logic'
+
 
 export default function Results() {
   return (
@@ -22,6 +24,8 @@ export default function Results() {
         <section className='results_intro'>
           <h1 className={styles.results_title}>Check these out&hellip;</h1>
         </section>
+        
+        {console.log(quizResults)}
 
         <section className={styles.cards_container}>
           {sortedResultsObject.map(itemArr => (
@@ -44,6 +48,9 @@ export default function Results() {
             />
           ))}
         </section>
+
+      
+
       </main>
     </>
   )
