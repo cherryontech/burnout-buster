@@ -41,13 +41,6 @@ export default function Results() {
               cardTag={itemArr.tag}
               cardUrl = {itemArr.url}
               cardDesc = {itemArr.description}
-
-              {/* imgUrl={Object.values(itemArr[1].image)} */}
-              {/* imgAlt={Object.values(itemArr[1].alt)} */}
-              {/* cardTitle={Object.values(itemArr[1].title)} */}
-              {/* cardTag={Object.values(itemArr[1].tag)} */}
-              {/* cardUrl={Object.values(itemArr[1].url)} */}
-              {/* cardDesc={Object.values(itemArr[1].description)} */}
               
             />
           ))}
