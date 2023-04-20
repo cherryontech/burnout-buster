@@ -4,21 +4,9 @@ import styles from '@/styles/Results.module.css'
 import Card from '../components/card.js'
 import Navbar from '@/components/navbar.js';
 import { resultsObject } from '@/data/results.js'
-import { EmailService } from '@/components/email_service.js'
 import { quizResults } from './quiz.js';
+import { sortedResultsObject } from '@/utils/quiz_logic'
 
-const FormSubmitResult = ({ status }) => {
-  if (status === null) {
-    return <></>;
-  }
-
-  const klass = status === 'success' ? "result-success" : "result-failure";
-  const message = status === 'success' ? "Yay :DDDD" : "Ohno :,(";
-
-  return (
-    <div className={klass}>{message}</div>
-  );
-}
 
 export default function Results() {
   return (
@@ -40,29 +28,28 @@ export default function Results() {
         {console.log(quizResults)}
 
         <section className={styles.cards_container}>
-          {Object.entries(resultsObject).map(itemArr => (
+          {sortedResultsObject.map(itemArr => (
             <Card
               key={itemArr[0]}
-              imgUrl={Object.values(itemArr[1].image)}
-              imgAlt={Object.values(itemArr[1].alt)}
-              cardTitle={Object.values(itemArr[1].title)}
-              cardTag={Object.values(itemArr[1].tag)}
-              cardUrl={Object.values(itemArr[1].url)}
-              cardDesc={Object.values(itemArr[1].description)}
+              imgUrl={itemArr.image}
+              imgAlt={itemArr.alt}
+              cardTitle={itemArr.title}
+              cardTag={itemArr.tag}
+              cardUrl = {itemArr.url}
+              cardDesc = {itemArr.description}
+
+              {/* imgUrl={Object.values(itemArr[1].image)} */}
+              {/* imgAlt={Object.values(itemArr[1].alt)} */}
+              {/* cardTitle={Object.values(itemArr[1].title)} */}
+              {/* cardTag={Object.values(itemArr[1].tag)} */}
+              {/* cardUrl={Object.values(itemArr[1].url)} */}
+              {/* cardDesc={Object.values(itemArr[1].description)} */}
+              
             />
           ))}
         </section>
 
-          
-        <section className='email_results'>
-          <h3>Email yourself your results</h3>
-          <EmailService
-            message={resultsObject}
-            setResultsStatus={setResultsStatus}
-          />
-        </section>
-
-        <FormSubmitResult status={resultsStatus} />
+      
 
       </main>
     </>
