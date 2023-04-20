@@ -9,8 +9,9 @@ import { useContext } from "react";
 import { useRouter } from "next/router";
 
 export let quizResults = null
+// {updateFormData}
 
-export default function Quiz({updateFormData}) {
+export default function Quiz() {
 
 const [currentQuestion, setCurrentQuestion] = useState(0);
 const [selectedAnswer, setSelectedAnswer] = useState([]);
@@ -53,18 +54,27 @@ const handleSelectedAnswer = (answer) => {
     //console.log(currentQuestion);
     if (currentQuestion === 0) {
       tagsScores['affordable'] = selectedAnswer[0]['userAnswer']
+      // setSelectedAnswer([(selectedAnswer[currentQuestion] = { 'affordable': answer})]);
     }
     else if (currentQuestion === 1) {
       tagsScores['job'] = selectedAnswer[1]['userAnswer']
+      // setSelectedAnswer([(selectedAnswer[currentQuestion] = { 'job': answer})]);
     }
     else if (currentQuestion === 2) {
       tagsScores['community'] = selectedAnswer[2]['userAnswer']
+      // setSelectedAnswer([(selectedAnswer[currentQuestion] = { 'community': answer})]);
     }
-    updateFormData({ result: tagsScores });
+    // updateFormData({ result: tagsScores }); //IMPORTANT: see where this is being used
+
     quizResults = tagsScores;
 
-    console.log(quizResults);
-    console.log(selectedAnswer);
+    // console.log('quizResults: ', quizResults);
+    // console.log('selectedAnswer: ', selectedAnswer);
+
+
+  // setSelectedAnswer([(selectedAnswer[currentQuestion] = { userAnswer: answer})]);
+  
+  // setSelectedAnswer([...selectedAnswer]);
 
   setAnswer(selectedAnswer);
 };

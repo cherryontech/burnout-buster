@@ -6,13 +6,49 @@ import { resultsObject } from '@/data/results.js'
 import { Results_data } from "../../context/context";
 import { useContext } from "react";
 import { quizResults } from './quiz.js';
-import { sortedResultsObject } from '@/utils/quiz_logic'
+import { 
+  rankTagsScores, 
+  deleteLastPlaceResults, 
+  sortResultsObject, 
+} from '@/utils/quiz_logic'
 
 
 export default function Results() {
   const { answer } = useContext(Results_data);
-  console.log('ANSWER: ', answer);
-  
+  // console.log('ANSWER: ', answer);
+
+
+  let results = [];
+
+  answer?.forEach(element => {
+    // console.log(element.userAnswer);
+    results.push(element.userAnswer);
+  });
+  console.log('RESULTS: ', results);
+
+  let finalScores = {
+    affordable: results[0],
+    job: results[1],
+    community: results[2],
+  };
+  console.log('FINAL SCORE: ', finalScores);
+
+  let tagsResults = {
+    affordable: ['sensa', 'pocketwell'],
+    job: ['jobnetwork'],
+    community: ['sidebyside', 'mighty'],
+  }
+
+  let rankedScores = rankTagsScores(finalScores);
+  deleteLastPlaceResults(rankedScores, tagsResults, resultsObject);
+  const sortedResultsObject = sortResultsObject(resultsObject, rankedScores);
+
+  console.log('rankedScores: ', rankedScores);
+  console.log('resultsObject: ', resultsObject);
+  console.log('sortedResultsObject: ', sortedResultsObject)
+
+
+
   return (
     <>
       <Head>
@@ -29,9 +65,9 @@ export default function Results() {
           <h1 className={styles.results_title}>Check these out&hellip;</h1>
         </section>
         
-        {console.log(quizResults)}
+        {console.log('sortedResultsObject: ', sortedResultsObject)}
 
-        <section className={styles.cards_container}>
+        {/* <section className={styles.cards_container}>
           {sortedResultsObject.map(itemArr => (
             <Card
               key={itemArr[0]}
@@ -44,7 +80,7 @@ export default function Results() {
               
             />
           ))}
-        </section>
+        </section> */}
 
       
 

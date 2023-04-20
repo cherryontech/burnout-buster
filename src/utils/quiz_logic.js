@@ -21,7 +21,7 @@ let tagsResults = {
 }
 
 // we rank the scores
-function rankTagsScores(tagsScores) {
+export function rankTagsScores(tagsScores) {
   let tagsScoresArr = Object.entries(tagsScores)
 
   tagsScoresArr.sort(function(a, b) {
@@ -36,7 +36,7 @@ function rankTagsScores(tagsScores) {
 
 
 // remove the one we don't care about from our object
-function deleteLastPlaceResults(rankedScores, tagsResults, resultsObject) {
+export function deleteLastPlaceResults(rankedScores, tagsResults, resultsObject) {
   let lastTag = rankedScores.slice(-1)[0]
 
   let lastPlaceResults = tagsResults[lastTag]
@@ -46,7 +46,7 @@ function deleteLastPlaceResults(rankedScores, tagsResults, resultsObject) {
 }
 
 
-function sortResultsObject(resultsObject, rankedScores) {
+export function sortResultsObject(resultsObject, rankedScores) {
   let betterPlacedTags = rankedScores.slice(0,-1)
 
   let orderedResultsArray = []
