@@ -5,6 +5,9 @@ import Navbar from '@/components/navbar.js';
 import { resultsObject } from '@/data/results.js'
 import { Results_data } from "../../context/context";
 import { useContext } from "react";
+import { quizResults } from './quiz.js';
+import { sortedResultsObject } from '@/utils/quiz_logic'
+
 
 export default function Results() {
   const { answer } = useContext(Results_data);
@@ -25,20 +28,33 @@ export default function Results() {
         <section className='results_intro'>
           <h1 className={styles.results_title}>Check these out&hellip;</h1>
         </section>
+        
+        {console.log(quizResults)}
 
         <section className={styles.cards_container}>
-          {Object.entries(resultsObject).map(itemArr => (
+          {sortedResultsObject.map(itemArr => (
             <Card
               key={itemArr[0]}
-              imgUrl={Object.values(itemArr[1].image)}
-              imgAlt={Object.values(itemArr[1].alt)}
-              cardTitle={Object.values(itemArr[1].title)}
-              cardTag={Object.values(itemArr[1].tag)}
-              cardUrl={Object.values(itemArr[1].url)}
-              cardDesc={Object.values(itemArr[1].description)}
+              imgUrl={itemArr.image}
+              imgAlt={itemArr.alt}
+              cardTitle={itemArr.title}
+              cardTag={itemArr.tag}
+              cardUrl = {itemArr.url}
+              cardDesc = {itemArr.description}
+
+              {/* imgUrl={Object.values(itemArr[1].image)} */}
+              {/* imgAlt={Object.values(itemArr[1].alt)} */}
+              {/* cardTitle={Object.values(itemArr[1].title)} */}
+              {/* cardTag={Object.values(itemArr[1].tag)} */}
+              {/* cardUrl={Object.values(itemArr[1].url)} */}
+              {/* cardDesc={Object.values(itemArr[1].description)} */}
+              
             />
           ))}
         </section>
+
+      
+
       </main>
     </>
   )

@@ -8,8 +8,9 @@ import { Results_data } from "../../context/context.js";
 import { useContext } from "react";
 import { useRouter } from "next/router";
 
+export let quizResults = null
 
-export default function Quiz() {
+export default function Quiz({updateFormData}) {
 
 const [currentQuestion, setCurrentQuestion] = useState(0);
 const [selectedAnswer, setSelectedAnswer] = useState([]);
@@ -35,12 +36,34 @@ const clickNext = () => {
   setProgress(progress); // new addition 4/8/23
 };
 
+
 const handleSelectedAnswer = (answer) => {
+  let tagsScores = {
+    affordable: 0,
+    job: 0,
+    community: 0,
+  };
+
   setSelectedAnswer([
     (selectedAnswer[currentQuestion] = { userAnswer: answer})
 
   ]);
     setSelectedAnswer([...selectedAnswer]);
+    
+    //console.log(currentQuestion);
+    if (currentQuestion === 0) {
+      tagsScores['affordable'] = selectedAnswer[0]['userAnswer']
+    }
+    else if (currentQuestion === 1) {
+      tagsScores['job'] = selectedAnswer[1]['userAnswer']
+    }
+    else if (currentQuestion === 2) {
+      tagsScores['community'] = selectedAnswer[2]['userAnswer']
+    }
+    updateFormData({ result: tagsScores });
+    quizResults = tagsScores;
+
+    console.log(quizResults);
     console.log(selectedAnswer);
 
   setAnswer(selectedAnswer);
@@ -104,8 +127,7 @@ const showResults = () => {
       </main>
     </>
   )
-}
-
+} 
 
 function ProgressBar({ progress }) { // new addition 4/8/23
   return (
