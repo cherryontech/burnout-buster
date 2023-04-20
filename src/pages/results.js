@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Head from 'next/head'
 import styles from '@/styles/Results.module.css'
 import Card from '../components/card.js'
+import Navbar from '@/components/navbar.js';
 import { resultsObject } from '@/data/results.js'
 import { EmailService } from '@/components/email_service.js'
 import { quizResults } from './quiz.js';
@@ -20,8 +21,6 @@ const FormSubmitResult = ({ status }) => {
 }
 
 export default function Results() {
-  const [resultsStatus, setResultsStatus] = useState(null);
-
   return (
     <>
       <Head>
@@ -30,6 +29,8 @@ export default function Results() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      <Navbar emailMessage={resultsObject} emailFeature={true}/>
 
       <main className={styles.main}>
         <section className='results_intro'>
@@ -51,6 +52,7 @@ export default function Results() {
             />
           ))}
         </section>
+
           
         <section className='email_results'>
           <h3>Email yourself your results</h3>
@@ -61,6 +63,7 @@ export default function Results() {
         </section>
 
         <FormSubmitResult status={resultsStatus} />
+
       </main>
     </>
   )
