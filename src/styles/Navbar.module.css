@@ -1,0 +1,35 @@
+.navbar_with_email {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--spaces-size-s);
+}
+
+.navbar_simple {
+  display: flex;
+  justify-content: flex-end;
+  padding: var(--spaces-size-s);
+}
+
+.email {
+  display: flex;
+  align-items: center;
+  gap: var(--spaces-size-s)
+}
+
+.tag {
+  border-radius: 500px;
+  padding: var(--spaces-size-xs) var(--spaces-size-s);
+  background-color: var(--color--grey);
+}
+
+.failure {
+  padding: var(--spaces-size-s);
+  text-align: center;
+  background-color: red;
+}
+
+.success {
+  padding: var(--spaces-size-s);
+  text-align: center;
+  background-color: greenyellow;
+}
