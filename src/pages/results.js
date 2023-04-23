@@ -6,13 +6,44 @@ import { resultsObject } from '@/data/results.js'
 import { Results_data } from "../../context/context";
 import { useContext } from "react";
 import { quizResults } from './quiz.js';
-import { sortedResultsObject } from '@/utils/quiz_logic'
+import { 
+  rankTagsScores, 
+  deleteLastPlaceResults, 
+  sortResultsObject, 
+} from '@/utils/quiz_logic'
 
 
 export default function Results() {
   const { answer } = useContext(Results_data);
-  console.log('ANSWER: ', answer);
-  
+
+  // Reference for how answers get filtered
+  let tagsResults = {
+    affordable: ['sensa', 'pocketwell'],
+    job: ['jobnetwork'],
+    community: ['sidebyside', 'mighty'],
+  }
+
+  // PROCESS USER INPUT. Add tags for each of the questions then push to an array
+  let results = [];
+
+  answer?.forEach(element => {
+    results.push(element.userAnswer);
+  });
+
+  let tagsScoresObj = {
+    affordable: results[0],
+    job: results[1],
+    community: results[2],
+  };
+  console.log('Sorted answers with tags: ', tagsScoresObj);
+
+  // 1. rank tags scores
+  let rankedScores = rankTagsScores(tagsScoresObj);
+  // 2. remove last place results
+  deleteLastPlaceResults(rankedScores, tagsResults, resultsObject);
+  // 3. return sorted results object (final output)
+  let finalOutput = sortResultsObject(resultsObject, rankedScores);
+
   return (
     <>
       <Head>
@@ -29,10 +60,8 @@ export default function Results() {
           <h1 className={styles.results_title}>Check these out&hellip;</h1>
         </section>
         
-        {console.log(quizResults)}
-
         <section className={styles.cards_container}>
-          {sortedResultsObject.map(itemArr => (
+          {finalOutput.map(itemArr => (
             <Card
               key={itemArr[0]}
               imgUrl={itemArr.image}
@@ -41,13 +70,9 @@ export default function Results() {
               cardTag={itemArr.tag}
               cardUrl = {itemArr.url}
               cardDesc = {itemArr.description}
-              
             />
           ))}
         </section>
-
-      
-
       </main>
     </>
   )

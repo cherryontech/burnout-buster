@@ -1,5 +1,6 @@
 import { resultsObject } from '@/data/results.js'
 
+// replace
 let tagsScores = {
   affordable: 0,
   job: 0,
@@ -21,7 +22,7 @@ let tagsResults = {
 }
 
 // we rank the scores
-function rankTagsScores(tagsScores) {
+export function rankTagsScores(tagsScores) {
   let tagsScoresArr = Object.entries(tagsScores)
 
   tagsScoresArr.sort(function(a, b) {
@@ -36,17 +37,26 @@ function rankTagsScores(tagsScores) {
 
 
 // remove the one we don't care about from our object
-function deleteLastPlaceResults(rankedScores, tagsResults, resultsObject) {
+export function deleteLastPlaceResults(rankedScores, tagsResults, resultsObject) {
   let lastTag = rankedScores.slice(-1)[0]
 
   let lastPlaceResults = tagsResults[lastTag]
-  lastPlaceResults.forEach(result => delete resultsObject[result])
 
-  return resultsObject
+  let shallowCopyResults = {};
+
+  Object.entries(resultsObject).forEach((result) => {
+    const [key, value] = result;    
+    if (resultsObject[key] !== lastPlaceResults) {
+      // push filtered results to a copy of the results database
+      shallowCopyResults[key] = resultsObject[key]
+    }
+  })
+
+  return shallowCopyResults
 }
 
 
-function sortResultsObject(resultsObject, rankedScores) {
+export function sortResultsObject(resultsObject, rankedScores) {
   let betterPlacedTags = rankedScores.slice(0,-1)
 
   let orderedResultsArray = []

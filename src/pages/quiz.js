@@ -10,7 +10,7 @@ import { useRouter } from "next/router";
 
 export let quizResults = null
 
-export default function Quiz({updateFormData}) {
+export default function Quiz() {
 
 const [currentQuestion, setCurrentQuestion] = useState(0);
 const [selectedAnswer, setSelectedAnswer] = useState([]);
@@ -49,7 +49,6 @@ const handleSelectedAnswer = (answer) => {
   ]);
     setSelectedAnswer([...selectedAnswer]);
     
-    //console.log(currentQuestion);
     if (currentQuestion === 0) {
       tagsScores['affordable'] = selectedAnswer[0]['userAnswer']
     }
@@ -59,18 +58,14 @@ const handleSelectedAnswer = (answer) => {
     else if (currentQuestion === 2) {
       tagsScores['community'] = selectedAnswer[2]['userAnswer']
     }
-    updateFormData({ result: tagsScores });
-    quizResults = tagsScores;
 
-    console.log(quizResults);
-    console.log(selectedAnswer);
+    quizResults = tagsScores;
 
   setAnswer(selectedAnswer);
 };
 
 const showResults = () => {
   router.push("/results");
-  // Reference: https://nextjs.org/docs/api-reference/next/router (routes to new page without losing data)
 }
 
   return (
