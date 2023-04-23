@@ -6,10 +6,10 @@ import { resultsObject } from '@/data/results.js'
 import { Results_data } from "../../context/context";
 import { useContext } from "react";
 import { quizResults } from './quiz.js';
-import { 
-  rankTagsScores, 
-  deleteLastPlaceResults, 
-  sortResultsObject, 
+import {
+  rankTagsScores,
+  deleteLastPlaceResults,
+  sortResultsObject,
 } from '@/utils/quiz_logic'
 
 
@@ -53,13 +53,13 @@ export default function Results() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Navbar emailMessage={resultsObject} emailFeature={true}/>
+      <Navbar emailMessage={finalOutput} emailFeature={true}/>
 
       <main className={styles.main}>
         <section className='results_intro'>
           <h1 className={styles.results_title}>Check these out&hellip;</h1>
         </section>
-        
+
         <section className={styles.cards_container}>
           {finalOutput.map(itemArr => (
             <Card
