@@ -101,11 +101,11 @@ const showResults = () => {
           {/* ANSWERS INPUTS */}
           {content[currentQuestion].quizAnswers.map((answer, index )=> (
               <div key={index} className="answers">
-                <input type="radio" name={answer.answer} value={answer.answer}
+                <input id={`theInput-${index}`} type="radio" name={answer.answer} value={answer.answer}
                 onChange ={(e) => handleSelectedAnswer(answer.answer)}
-                checked ={answer.answer === selectedAnswer[currentQuestion]?.userAnswer}
-                className={styles.answerBtns}/> 
-                <label className={styles.inputDesign}>i</label>
+                checked = {answer.answer === selectedAnswer[currentQuestion]?.userAnswer}
+                className={styles.answerBtns}/>
+                <label for ={`theInput-${index}`} className={styles.inputDesign}></label>
               </div>
           ))}
 
