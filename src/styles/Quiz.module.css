@@ -7,8 +7,10 @@
   }
 
   .quiz_statement {
-    margin-top: 3rem;
+    margin-top: 1rem;
+    width: 80vw;
     color: black;
+    margin-bottom: 7rem;
   }
 
   .answer_titles{
@@ -20,13 +22,40 @@
     align-items: center;
   } 
 
-  .answerBtns{
-    margin-top: 2rem;
+  .answerBtns {
+    display: none;
+    /*margin-top: 2rem;
     width: 35px;
     height: 35px;
     text-align: center;
-    accent-color: gray;
+    accent-color: gray; */
   }
+
+  .inputDesign {
+    display: flex;
+    font-size: 25px;
+    padding: 5px 15px;
+   }
+
+   .inputDesign:before {
+    content: "";
+    height: 37px;
+    width: 37px;
+    border: 2px solid #000000;
+    background-color: #D9D9D9;
+    border-radius: 50%;
+    margin-right: 10px;
+   }
+
+   .answerBtns:checked + .inputDesign{
+    color: white;
+   }
+
+   .answerBtns:checked + .inputDesign:before{
+    height: 37px;
+    width: 37px;
+    background-color: #565656;
+   }
 
   .next_btn{
     color: white;
@@ -61,38 +90,33 @@
   }
 
   .scale_btn{
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .progress_wrapper{
+    display: flex;
+    margin-top: 25vh;
+    justify-content: space-between;
+    align-items: center;
+
   }
 
  .progress_bar{
-  margin-top: 13rem;
-  width: 70rem;
-  height: 0.75rem;
+  width: 80vw;
+  height: 1rem;
   background-color: #D9D9D9;
   border-radius: 10px;
  }
 
  .user_progress{
   width: 0%;
-  height: 0.75rem;
+  height: 1rem;
   background-color: #2D2D2D;
   border-radius: 10px;
  }
 
- .exit_button {
-  padding: 5px 22px 5px 22px;
-  border-radius: 15px;
-  background-color: none;
-  border: none;
-  font-size: 17px;
-  box-shadow: 1px 2px 2px 1px #bdbdbd;
-  font-weight: 600;
-  transition-duration: 0.4s;
-  text-decoration: none;
-  color: black;
+ .progress_text{
+  margin-left: 1vw;
  }
 
- .exit_button:hover{
-  background-color: #979797;
- }

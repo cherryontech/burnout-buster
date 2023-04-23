@@ -14,7 +14,7 @@ export default function Quiz({updateFormData}) {
 
 const [currentQuestion, setCurrentQuestion] = useState(0);
 const [selectedAnswer, setSelectedAnswer] = useState([]);
-const [progress, setProgress] = useState(0); // new addition 4/8/23
+const [progress, setProgress] = useState(33.33); // number placeholder
 
 const { answer, setAnswer } = useContext(Results_data);
 var router = useRouter();
@@ -32,7 +32,6 @@ const clickNext = () => {
   const nextQuestion = currentQuestion + 1;
   nextQuestion < content.length && setCurrentQuestion(nextQuestion);
   const progress = (((currentQuestion +1) + 1) / content.length) * 100;
-
   setProgress(progress); // new addition 4/8/23
 };
 
@@ -102,10 +101,11 @@ const showResults = () => {
           {/* ANSWERS INPUTS */}
           {content[currentQuestion].quizAnswers.map((answer, index )=> (
               <div key={index} className="answers">
-                <input type="radio" name={answer.answer} value={answer.answer}
+                <input id={`theInput-${index}`} type="radio" name={answer.answer} value={answer.answer}
                 onChange ={(e) => handleSelectedAnswer(answer.answer)}
-                checked ={answer.answer === selectedAnswer[currentQuestion]?.userAnswer}
+                checked = {answer.answer === selectedAnswer[currentQuestion]?.userAnswer}
                 className={styles.answerBtns}/>
+                <label for ={`theInput-${index}`} className={styles.inputDesign}></label>
               </div>
           ))}
 
@@ -120,9 +120,9 @@ const showResults = () => {
         </div>
 
         {/* PROGRESS BAR */}
-        <div>
+        <div className={styles.progress_wrapper}>
           <ProgressBar progress={progress} />
-          <h3>{`${currentQuestion + 1} / ${content.length}`}</h3>
+          <h3 className={styles.progress_text}>{`${currentQuestion + 1} / ${content.length}`}</h3>
         </div>
       </main>
     </>
