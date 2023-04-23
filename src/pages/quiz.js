@@ -120,9 +120,9 @@ const showResults = () => {
         </div>
 
         {/* PROGRESS BAR */}
-        <div>
+        <div className={styles.progress_wrapper}>
           <ProgressBar progress={progress} />
-          <h3>{`${currentQuestion + 1} / ${content.length}`}</h3>
+          <h3 className={styles.progress_text}>{`${currentQuestion + 1} / ${content.length}`}</h3>
         </div>
       </main>
     </>
