@@ -14,7 +14,7 @@ export default function Quiz({updateFormData}) {
 
 const [currentQuestion, setCurrentQuestion] = useState(0);
 const [selectedAnswer, setSelectedAnswer] = useState([]);
-const [progress, setProgress] = useState(0); // new addition 4/8/23
+const [progress, setProgress] = useState(33.33); // number placeholder
 
 const { answer, setAnswer } = useContext(Results_data);
 var router = useRouter();
@@ -32,7 +32,6 @@ const clickNext = () => {
   const nextQuestion = currentQuestion + 1;
   nextQuestion < content.length && setCurrentQuestion(nextQuestion);
   const progress = (((currentQuestion +1) + 1) / content.length) * 100;
-
   setProgress(progress); // new addition 4/8/23
 };
 
@@ -105,7 +104,8 @@ const showResults = () => {
                 <input type="radio" name={answer.answer} value={answer.answer}
                 onChange ={(e) => handleSelectedAnswer(answer.answer)}
                 checked ={answer.answer === selectedAnswer[currentQuestion]?.userAnswer}
-                className={styles.answerBtns}/>
+                className={styles.answerBtns}/> 
+                <label className={styles.inputDesign}>i</label>
               </div>
           ))}
 
