@@ -15,39 +15,34 @@ import {
 
 export default function Results() {
   const { answer } = useContext(Results_data);
-  // console.log('ANSWER: ', answer);
 
-
-  let results = [];
-
-  answer?.forEach(element => {
-    // console.log(element.userAnswer);
-    results.push(element.userAnswer);
-  });
-  console.log('RESULTS: ', results);
-
-  let finalScores = {
-    affordable: results[0],
-    job: results[1],
-    community: results[2],
-  };
-  console.log('FINAL SCORE: ', finalScores);
-
+  // Reference for how answers get filtered
   let tagsResults = {
     affordable: ['sensa', 'pocketwell'],
     job: ['jobnetwork'],
     community: ['sidebyside', 'mighty'],
   }
 
-  let rankedScores = rankTagsScores(finalScores);
+  // PROCESS USER INPUT. Add tags for each of the questions then push to an array
+  let results = [];
+
+  answer?.forEach(element => {
+    results.push(element.userAnswer);
+  });
+
+  let tagsScoresObj = {
+    affordable: results[0],
+    job: results[1],
+    community: results[2],
+  };
+  console.log('Sorted answers with tags: ', tagsScoresObj);
+
+  // 1. rank tags scores
+  let rankedScores = rankTagsScores(tagsScoresObj);
+  // 2. remove last place results
   deleteLastPlaceResults(rankedScores, tagsResults, resultsObject);
-  const sortedResultsObject = sortResultsObject(resultsObject, rankedScores);
-
-  console.log('rankedScores: ', rankedScores);
-  console.log('resultsObject: ', resultsObject);
-  console.log('sortedResultsObject: ', sortedResultsObject)
-
-
+  // 3. return sorted results object (final output)
+  let finalOutput = sortResultsObject(resultsObject, rankedScores);
 
   return (
     <>
@@ -65,10 +60,8 @@ export default function Results() {
           <h1 className={styles.results_title}>Check these out&hellip;</h1>
         </section>
         
-        {console.log('sortedResultsObject: ', sortedResultsObject)}
-
-        {/* <section className={styles.cards_container}>
-          {sortedResultsObject.map(itemArr => (
+        <section className={styles.cards_container}>
+          {finalOutput.map(itemArr => (
             <Card
               key={itemArr[0]}
               imgUrl={itemArr.image}
@@ -77,13 +70,9 @@ export default function Results() {
               cardTag={itemArr.tag}
               cardUrl = {itemArr.url}
               cardDesc = {itemArr.description}
-              
             />
           ))}
-        </section> */}
-
-      
-
+        </section>
       </main>
     </>
   )

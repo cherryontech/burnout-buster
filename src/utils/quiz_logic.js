@@ -1,5 +1,6 @@
 import { resultsObject } from '@/data/results.js'
 
+// replace
 let tagsScores = {
   affordable: 0,
   job: 0,
@@ -40,9 +41,18 @@ export function deleteLastPlaceResults(rankedScores, tagsResults, resultsObject)
   let lastTag = rankedScores.slice(-1)[0]
 
   let lastPlaceResults = tagsResults[lastTag]
-  lastPlaceResults.forEach(result => delete resultsObject[result])
 
-  return resultsObject
+  let shallowCopyResults = {};
+
+  Object.entries(resultsObject).forEach((result) => {
+    const [key, value] = result;    
+    if (resultsObject[key] !== lastPlaceResults) {
+      // push filtered results to a copy of the results database
+      shallowCopyResults[key] = resultsObject[key]
+    }
+  })
+
+  return shallowCopyResults
 }
 
 
